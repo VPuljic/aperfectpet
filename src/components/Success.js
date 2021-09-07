@@ -1,30 +1,39 @@
 import React, { Component } from "react";
 import Dialog from "@material-ui/core/Dialog";
-import AppBar from "@material-ui/core/AppBar";
+import Typography from "@material-ui/core/Typography";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 export class Success extends Component {
-  continue = (e) => {
-    e.preventDefault();
-    // PROCESS FORM //
-    this.props.nextStep();
-  };
-
-  back = (e) => {
-    e.preventDefault();
-    this.props.prevStep();
-  };
-
   render() {
+    const {
+      values: { firstAnswer, secondAnswer, thirdAnswer },
+    } = this.props;
     return (
       <MuiThemeProvider>
         <>
           <Dialog open fullWidth maxWidth="sm">
-            <AppBar title="Success" />
-            <h1>
-              My pet is 1st answer, and although he likes to 2nd answer, he
-              really hates __3rd answer__
-            </h1>
+            <Typography variant="h4">
+              My pet is {firstAnswer}, and although he likes to 
+              {secondAnswer}, he really hates {thirdAnswer}.
+            </Typography>
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={this.reset}
+              size="small"
+            >
+              Scramble
+            </Button>
+            <br />
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={this.reset}
+              size="small"
+            >
+              Reset
+            </Button>
           </Dialog>
         </>
       </MuiThemeProvider>

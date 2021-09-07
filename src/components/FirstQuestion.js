@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
-import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 
 export class FirstQuestion extends Component {
   continue = (e) => {
@@ -13,45 +15,47 @@ export class FirstQuestion extends Component {
     const { values, handleChange } = this.props;
     return (
       <MuiThemeProvider>
-        <>
+        <React.Fragment>
           <Dialog open fullWidth maxWidth="sm">
-            <AppBar title="Your perfect pet" />
-            <br />
-            <h2>Your perfect pet is:</h2>
-            <br />
+            <AppBar title="Your perfect pet">
+              <Toolbar>
+                <Typography variant="subtitle1">My Perfect Pet</Typography>
+              </Toolbar>
+            </AppBar>
+            <Typography variant="body1">Your perfect pet is:</Typography>
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("small")}
-              defaultValue={values.small}
-              label="small"
+              onClick={handleChange("firstAnswer", "small")}
+              defaultValue={values.firstAnswer}
+              value="small"
             >
               Small
             </Button>
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("big")}
-              defaultValue={values.big}
-              label="big"
+              onClick={handleChange("firstAnswer", "big")}
+              defaultValue={values.firstAnswer}
+              value="big"
             >
               Big
             </Button>
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("midSize")}
-              defaultValue={values.midSize}
-              label="midSize"
+              onClick={handleChange("firstAnswer", "midSize")}
+              defaultValue={values.firstAnswer}
+              value="midSize"
             >
               Mid-size
             </Button>
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("tall")}
-              defaultValue={values.tall}
-              label="tall"
+              onClick={handleChange("firstAnswer", "tall")}
+              defaultValue={values.firstAnswer}
+              value="tall"
             >
               Tall
             </Button>
@@ -60,7 +64,7 @@ export class FirstQuestion extends Component {
               Continue
             </Button>
           </Dialog>
-        </>
+        </React.Fragment>
       </MuiThemeProvider>
     );
   }

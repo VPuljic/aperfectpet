@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 export class SecondQuestion extends Component {
   continue = (e) => {
@@ -13,16 +15,18 @@ export class SecondQuestion extends Component {
     const { values, handleChange } = this.props;
     return (
       <MuiThemeProvider>
-        <>
+        <React.Fragment>
           <Dialog open fullWidth maxWidth="sm">
-            <AppBar title="Your perfect pet" />
-            <br />
-            <h2>Your perfect pet likes to:</h2>
-            <br />
+            <AppBar title="Your perfect pet">
+              <Toolbar>
+                <Typography variant="subtitle1">My Perfect Pet</Typography>
+              </Toolbar>
+            </AppBar>
+            <Typography variant="body1">Your perfect pet likes to:</Typography>
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("eat")}
+              onClick={handleChange("secondAnswer", "eat")}
               defaultValue={values.eat}
               label="eat"
             >
@@ -31,7 +35,7 @@ export class SecondQuestion extends Component {
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("run")}
+              onClick={handleChange("secondAnswer", "run")}
               defaultValue={values.run}
               label="run"
             >
@@ -40,7 +44,7 @@ export class SecondQuestion extends Component {
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("cuddle")}
+              onClick={handleChange("secondAnswer", "cuddle")}
               defaultValue={values.cuddle}
               label="cuddle"
             >
@@ -49,7 +53,7 @@ export class SecondQuestion extends Component {
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("swim")}
+              onClick={handleChange("secondQuestion", "swim")}
               defaultValue={values.swim}
               label="swim"
             >
@@ -60,7 +64,7 @@ export class SecondQuestion extends Component {
               Continue
             </Button>
           </Dialog>
-        </>
+        </React.Fragment>
       </MuiThemeProvider>
     );
   }

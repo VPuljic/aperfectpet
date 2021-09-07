@@ -8,6 +8,8 @@ export class QuestionForm extends Component {
   state = {
     step: 1,
     firstAnswer: "",
+    secondAnswer: "",
+    thirdAnswer: "",
   };
   // Proceed to next step
   nextStep = () => {
@@ -17,13 +19,13 @@ export class QuestionForm extends Component {
     });
   };
   // Handle fields change
-  handleChange = (input) => (e) => {
-    this.setState({ [input]: e.target.value });
+  handleChange = (input, name) => () => {
+    this.setState({ [input]: name });
   };
   render() {
     const { step } = this.state;
-    const { firstAnswer } = this.state;
-    const values = { firstAnswer };
+    const { firstAnswer, secondAnswer, thirdAnswer } = this.state;
+    const values = { firstAnswer, secondAnswer, thirdAnswer };
     switch (step) {
       case 1:
         return (
@@ -50,7 +52,7 @@ export class QuestionForm extends Component {
           />
         );
       case 4:
-        return <Success />;
+        return <Success values={values} />;
       default:
         console.log("This is a small quiz built with React.");
     }

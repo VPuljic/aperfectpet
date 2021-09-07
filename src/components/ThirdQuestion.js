@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 export class ThirdQuestion extends Component {
   continue = (e) => {
@@ -15,14 +17,16 @@ export class ThirdQuestion extends Component {
       <MuiThemeProvider>
         <>
           <Dialog open fullWidth maxWidth="sm">
-            <AppBar title="Your perfect pet" />
-            <br />
-            <h2>Your perfect pet hates:</h2>
-            <br />
+            <AppBar title="Your perfect pet">
+              <Toolbar>
+                <Typography variant="subtitle1">My Perfect Pet</Typography>
+              </Toolbar>
+            </AppBar>
+            <Typography variant="body1">Your perfect pet hates:</Typography>
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("hot")}
+              onClick={handleChange("thirdAnswer")}
               defaultValue={values.hot}
               label="hot"
             >
@@ -31,7 +35,7 @@ export class ThirdQuestion extends Component {
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("cold")}
+              onClick={handleChange("thirdAnswer", "cold")}
               defaultValue={values.cold}
               label="cold"
             >
@@ -40,7 +44,7 @@ export class ThirdQuestion extends Component {
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("rain")}
+              onClick={handleChange("thirdAnswer", "rain")}
               defaultValue={values.rain}
               label="rain"
             >
@@ -49,7 +53,7 @@ export class ThirdQuestion extends Component {
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("snowy")}
+              onClick={handleChange("thirdAnswer", "snowy")}
               defaultValue={values.snowy}
               label="snowy"
             >
