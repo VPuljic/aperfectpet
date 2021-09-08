@@ -7,10 +7,6 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 export class SecondQuestion extends Component {
-  continue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
-  };
   render() {
     const { values, handleChange } = this.props;
     return (
@@ -53,15 +49,11 @@ export class SecondQuestion extends Component {
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("secondQuestion", "swim")}
+              onClick={handleChange("secondAnswer", "swim")}
               defaultValue={values.swim}
               label="swim"
             >
               Swim a lot
-            </Button>
-            <br />
-            <Button color="primary" variant="contained" onClick={this.continue}>
-              Continue
             </Button>
           </Dialog>
         </React.Fragment>

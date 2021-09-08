@@ -7,10 +7,6 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 export class ThirdQuestion extends Component {
-  continue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
-  };
   render() {
     const { values, handleChange } = this.props;
     return (
@@ -26,7 +22,7 @@ export class ThirdQuestion extends Component {
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("thirdAnswer")}
+              onClick={handleChange("thirdAnswer", "hot weather")}
               defaultValue={values.hot}
               label="hot"
             >
@@ -35,7 +31,7 @@ export class ThirdQuestion extends Component {
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("thirdAnswer", "cold")}
+              onClick={handleChange("thirdAnswer", "cold weather")}
               defaultValue={values.cold}
               label="cold"
             >
@@ -53,15 +49,11 @@ export class ThirdQuestion extends Component {
             <Button
               color="secondary"
               variant="contained"
-              onClick={handleChange("thirdAnswer", "snowy")}
+              onClick={handleChange("thirdAnswer", "snow")}
               defaultValue={values.snowy}
-              label="snowy"
+              label="snow"
             >
               Snowy weather
-            </Button>
-            <br />
-            <Button color="primary" variant="contained" onClick={this.continue}>
-              Continue
             </Button>
           </Dialog>
         </>

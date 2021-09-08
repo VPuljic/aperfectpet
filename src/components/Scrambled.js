@@ -4,28 +4,34 @@ import Typography from "@material-ui/core/Typography";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
-export class Success extends Component {
+export class Scrambled extends Component {
   render() {
-    const { handleChange } = this.props;
     const {
       resetState,
       values: { firstAnswer, secondAnswer, thirdAnswer },
     } = this.props;
-    const finalSentence = `My pet is ${firstAnswer}, and although he likes to 
-              ${secondAnswer}, he really hates ${thirdAnswer}.`;
+    let firstScrAnswer = "";
+    firstScrAnswer = firstAnswer
+      .split("")
+      .sort(() => 0.5 - Math.random())
+      .join("");
+    let secondScrAnswer = "";
+    secondScrAnswer = secondAnswer
+      .split("")
+      .sort(() => 0.5 - Math.random())
+      .join("");
+    let thirdScrAnswer = "";
+    thirdScrAnswer = thirdAnswer
+      .split("")
+      .sort(() => 0.5 - Math.random())
+      .join("");
+    const finalSentence = `My pet is ${firstScrAnswer}, and although he likes to 
+              ${secondScrAnswer}, he really hates ${thirdScrAnswer}.`;
     return (
       <MuiThemeProvider>
         <>
           <Dialog open fullWidth maxWidth="sm">
             <Typography variant="h4">{finalSentence}</Typography>
-            <Button
-              color="primary"
-              variant="contained"
-              onClick={handleChange()}
-              size="small"
-            >
-              Scramble
-            </Button>
             <br />
             <Button
               color="primary"
@@ -42,4 +48,4 @@ export class Success extends Component {
   }
 }
 
-export default Success;
+export default Scrambled;

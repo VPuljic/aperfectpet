@@ -7,10 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 
 export class FirstQuestion extends Component {
-  continue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
-  };
   render() {
     const { values, handleChange } = this.props;
     return (
@@ -58,10 +54,6 @@ export class FirstQuestion extends Component {
               value="tall"
             >
               Tall
-            </Button>
-            <br />
-            <Button color="primary" variant="contained" onClick={this.continue}>
-              Continue
             </Button>
           </Dialog>
         </React.Fragment>
