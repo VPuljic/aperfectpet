@@ -5,13 +5,24 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
+import { styled } from '@material-ui/core/styles';
 
+const MyButton = styled(Button)({
+  background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+  border: 0,
+  borderRadius: 3,
+  marginBottom: 10,
+  boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+  color: "white",
+  height: 48,
+  padding: "0 30px",
+});
 export class FirstQuestion extends Component {
   render() {
-    const { values, handleChange } = this.props;
+    const { values, handleChange, randomAnswers } = this.props;
     return (
       <MuiThemeProvider>
-        <React.Fragment>
+        <>
           <Dialog open fullWidth maxWidth="sm">
             <AppBar title="Your perfect pet">
               <Toolbar>
@@ -19,44 +30,40 @@ export class FirstQuestion extends Component {
               </Toolbar>
             </AppBar>
             <Typography variant="body1">Your perfect pet is:</Typography>
-            <Button
-              color="secondary"
-              variant="contained"
+            <MyButton
               onClick={handleChange("firstAnswer", "small")}
               defaultValue={values.firstAnswer}
               value="small"
             >
               Small
-            </Button>
-            <Button
-              color="secondary"
-              variant="contained"
+            </MyButton>
+            <MyButton
               onClick={handleChange("firstAnswer", "big")}
               defaultValue={values.firstAnswer}
               value="big"
             >
               Big
-            </Button>
-            <Button
-              color="secondary"
-              variant="contained"
+            </MyButton>
+            <MyButton
               onClick={handleChange("firstAnswer", "midSize")}
               defaultValue={values.firstAnswer}
               value="midSize"
             >
               Mid-size
-            </Button>
-            <Button
-              color="secondary"
-              variant="contained"
+            </MyButton>
+            <MyButton
               onClick={handleChange("firstAnswer", "tall")}
               defaultValue={values.firstAnswer}
               value="tall"
             >
               Tall
+            </MyButton>
+            <br />
+            <Button color="primary" variant="contained" onClick={randomAnswers}>
+              Randomize
             </Button>
           </Dialog>
-        </React.Fragment>
+        </>
       </MuiThemeProvider>
     );
   }

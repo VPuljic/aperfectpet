@@ -6,6 +6,18 @@ import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
+import { styled } from '@material-ui/core/styles';
+
+const MyButton = styled(Button)({
+  background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+  border: 0,
+  borderRadius: 3,
+  marginBottom: 10,
+  boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+  color: "white",
+  height: 48,
+  padding: "0 30px",
+});
 export class ThirdQuestion extends Component {
   render() {
     const { values, handleChange } = this.props;
@@ -19,7 +31,7 @@ export class ThirdQuestion extends Component {
               </Toolbar>
             </AppBar>
             <Typography variant="body1">Your perfect pet hates:</Typography>
-            <Button
+            <MyButton
               color="secondary"
               variant="contained"
               onClick={handleChange("thirdAnswer", "hot weather")}
@@ -27,8 +39,8 @@ export class ThirdQuestion extends Component {
               label="hot"
             >
               Hot weather
-            </Button>
-            <Button
+            </MyButton>
+            <MyButton
               color="secondary"
               variant="contained"
               onClick={handleChange("thirdAnswer", "cold weather")}
@@ -36,8 +48,8 @@ export class ThirdQuestion extends Component {
               label="cold"
             >
               Cold weather
-            </Button>
-            <Button
+            </MyButton>
+            <MyButton
               color="secondary"
               variant="contained"
               onClick={handleChange("thirdAnswer", "rain")}
@@ -45,8 +57,8 @@ export class ThirdQuestion extends Component {
               label="rain"
             >
               Rainy weather
-            </Button>
-            <Button
+            </MyButton>
+            <MyButton
               color="secondary"
               variant="contained"
               onClick={handleChange("thirdAnswer", "snow")}
@@ -54,7 +66,7 @@ export class ThirdQuestion extends Component {
               label="snow"
             >
               Snowy weather
-            </Button>
+            </MyButton>
           </Dialog>
         </>
       </MuiThemeProvider>
