@@ -62,6 +62,13 @@ export class FirstQuestion extends Component {
             <Button color="primary" variant="contained" onClick={randomAnswers}>
               Randomize
             </Button>
+            <MyButton
+              onClick={handleChange("firstAnswer", "tall")}
+              defaultValue={values.firstAnswer}
+              value="tall"
+            >
+              Test of git
+            </MyButton>
           </Dialog>
         </>
       </MuiThemeProvider>
