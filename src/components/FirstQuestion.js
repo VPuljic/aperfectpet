@@ -63,8 +63,12 @@ export class FirstQuestion extends Component {
               Randomize
             </Button>
           </Dialog>
+<<<<<<< HEAD
           <div>This is second one</div>
           <div>One more change</div>
+=======
+          <div>This is first branch</div>
+>>>>>>> 80a390893dddc70647879416397ea988140df70c
         </>
       </MuiThemeProvider>
     );
