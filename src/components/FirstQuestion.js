@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import { styled } from '@material-ui/core/styles';
+import Tesccomp from './Test/Tesccomp'
 
 const MyButton = styled(Button)({
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -63,6 +64,7 @@ export class FirstQuestion extends Component {
               Randomize
             </Button>
           </Dialog>
+          <Tesccomp />
         </>
       </MuiThemeProvider>
     );
