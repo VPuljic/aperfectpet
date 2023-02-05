@@ -64,6 +64,7 @@ export class FirstQuestion extends Component {
             </Button>
           </Dialog>
           <div>This is second one</div>
+          <div>One more change</div>
         </>
       </MuiThemeProvider>
     );
