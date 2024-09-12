@@ -63,6 +63,7 @@ export class FirstQuestion extends Component {
               Randomize
             </Button>
           </Dialog>
+          <div>This is from second one</div>
           <div>This is from first</div>
         </>
       </MuiThemeProvider>
