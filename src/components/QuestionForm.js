@@ -14,6 +14,7 @@ export class QuestionForm extends Component {
     secondAnswer: "",
     thirdAnswer: "",
   };
+
   // Proceed to next step
   nextStep = () => {
     const { step } = this.state;
@@ -21,6 +22,7 @@ export class QuestionForm extends Component {
       step: step + 1,
     });
   };
+
   // Handle fields change, moves page forward and stores data in localStorage
   handleChange = (input, name) => () => {
     this.setState({ [input]: name });
@@ -31,6 +33,7 @@ export class QuestionForm extends Component {
     localStorage.setItem(input, JSON.stringify(name));
     localStorage.setItem("step", JSON.stringify(step));
   };
+
   // Returns state from local storage
   returnStateWithLocalStorage = () => {
     for (let input in this.state) {
@@ -45,15 +48,17 @@ export class QuestionForm extends Component {
   componentDidMount = () => {
     this.returnStateWithLocalStorage();
   };
-  handlePetName = input => e => {
+  handlePetName = (input) => (e) => {
     this.setState({ [input]: e.target.value });
   };
+
   // Resets app to start
   resetState = () => {
     this.setState({
       step: 1,
     });
   };
+
   // Displays final sentece with random answers
   randomAnswers = () => {
     function getRndInteger(min, max) {
@@ -80,7 +85,7 @@ export class QuestionForm extends Component {
       thirdAnswer: thirdRandom,
     });
   };
-  // Displays diferent react component using step as guide
+
   render() {
     const { step } = this.state;
     const { petName, firstAnswer, secondAnswer, thirdAnswer } = this.state;
@@ -125,4 +130,5 @@ export class QuestionForm extends Component {
     }
   }
 }
+
 export default QuestionForm;
